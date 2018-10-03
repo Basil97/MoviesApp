@@ -9,23 +9,23 @@ import android.os.Parcelable;
 
 public class MovieDetails implements Parcelable{
 
-    private String name;
-    private String des;
-    private int imgId;
-    private int sImgId;
+    private String title;
+    private String overview;
+    private String posterPath;
+    private float voteAverage;
 
-    public MovieDetails(String name, String des, int imgId, int sImgId) {
-        this.name = name;
-        this.des = des;
-        this.imgId = imgId;
-        this.sImgId = sImgId;
+    public MovieDetails(String title, String overview, String posterPath, float voteAverage) {
+        this.title = title;
+        this.overview = overview;
+        this.posterPath = posterPath;
+        this.voteAverage = voteAverage;
     }
 
     protected MovieDetails(Parcel in) {
-        name = in.readString();
-        des = in.readString();
-        imgId = in.readInt();
-        sImgId = in.readInt();
+        title = in.readString();
+        overview = in.readString();
+        posterPath = in.readString();
+        voteAverage = in.readFloat();
     }
 
     public static final Creator<MovieDetails> CREATOR = new Creator<MovieDetails>() {
@@ -40,20 +40,20 @@ public class MovieDetails implements Parcelable{
         }
     };
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public String getDes() {
-        return des;
+    public String getOverview() {
+        return overview;
     }
 
-    public int getImgId() {
-        return imgId;
+    public String getPosterPath() {
+        return posterPath;
     }
 
-    public int getsImgId() {
-        return sImgId;
+    public float getVoteAverage() {
+        return voteAverage;
     }
 
     @Override
@@ -63,9 +63,9 @@ public class MovieDetails implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(des);
-        parcel.writeInt(imgId);
-        parcel.writeInt(sImgId);
+        parcel.writeString(title);
+        parcel.writeString(overview);
+        parcel.writeString(posterPath);
+        parcel.writeFloat(voteAverage);
     }
 }

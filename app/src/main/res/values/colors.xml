@@ -3,6 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="Black">#0d0c0c</color>
     <color name="LightBlack">#262626</color>
+
+    <color name="DarkLime">#605916</color>
+    <color name="LightLime">#d2d531</color>
+    <color name="DarkGreen">#2f613b</color>
+    <color name="LightGreen">#21d07a</color>
+    <color name="DarkRed">#842a57</color>
+    <color name="LightRed">#db2360</color>
+
 </resources>

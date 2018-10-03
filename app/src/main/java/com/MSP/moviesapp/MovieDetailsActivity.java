@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
@@ -13,23 +16,21 @@ public class MovieDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
 
-        ImageView img = (ImageView) findViewById(R.id.img);
-        TextView txtName = (TextView) findViewById(R.id.txtname);
-        TextView txtDes = (TextView) findViewById(R.id.txtdes);
+        ImageView poster = findViewById(R.id.poster);
+        TextView txtTitle = findViewById(R.id.txttitle);
+        TextView txtOverview = findViewById(R.id.txtoverview);
+        RatingBar barVote = findViewById(R.id.votebar);
 
         Intent intent = getIntent();
 
         MovieDetails movie = intent.getExtras().getParcelable("movie");
 
-        img.setImageResource(movie.getImgId());
-        txtName.setText(movie.getName());
-        txtDes.setText(movie.getDes());
-        /*
-        Bundle bu = intent.getExtras();
+        String posterPath = "https://image.tmdb.org/t/p/w500" + movie.getPosterPath();
+        Picasso.get().load(posterPath).into(poster);
+        txtTitle.setText(movie.getTitle());
+        txtOverview.setText(movie.getOverview());
+        barVote.setIsIndicator(true);
+        barVote.setRating(movie.getVoteAverage()/2);
 
-        img.setImageResource(bu.getInt("imgId"));
-        txtName.setText(bu.getString("name"));
-        txtDes.setText(bu.getString("des"));
-        */
     }
 }

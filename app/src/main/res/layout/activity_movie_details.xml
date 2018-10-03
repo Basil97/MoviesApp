@@ -4,52 +4,60 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context="com.MSP.moviesapp.MovieDetailsActivity">
 
 
 
         <ImageView
-            android:id="@+id/img"
-            android:layout_width="190dp"
-            android:layout_height="250dp"
+            android:id="@+id/poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/antman"/>
 
         <TextView
-            android:id="@+id/txtname"
+            android:id="@+id/txttitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_below="@id/img"
+            android:layout_below="@id/poster"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="@color/Black"
             android:text="Ant-Man and The Wasp (2018)"/>
 
+        <RatingBar
+            android:id="@+id/votebar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:layout_below="@id/txttitle"
+            android:layout_centerHorizontal="true"/>
+
         <TextView
             android:id="@+id/overview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_below="@id/txtname"
-            android:textSize="18dp"
+            android:layout_below="@id/votebar"
+            android:textSize="18sp"
             android:textColor="@color/Black"
             android:textStyle="bold"
             android:text="@string/overview"/>
 
         <TextView
-            android:id="@+id/txtdes"
+            android:id="@+id/txtoverview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_below="@id/overview"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textColor="@color/LightBlack"
             android:text="@string/antman"/>
 
