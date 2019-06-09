@@ -16,11 +16,11 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-public class QueryUtils {
+class QueryUtils {
 
     private QueryUtils() {}
 
-    public static ArrayList<MovieDetails> fetchMovies(String stringURL) {
+    static ArrayList<MovieDetails> fetchMovies(String stringURL) {
         URL url = createURL(stringURL);
         ArrayList<MovieDetails> movies = null;
         if (url != null) {

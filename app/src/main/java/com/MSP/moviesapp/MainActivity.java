@@ -2,12 +2,11 @@ package com.MSP.moviesapp;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -24,18 +23,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUI(final ArrayList<MovieDetails> movies) {
-        ListView listView = findViewById(R.id.listview);
-        listView.setAdapter(new MyAdapter(getApplicationContext(), movies));
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        MyAdapter adapter = new MyAdapter(this, movies);
+        adapter.setOnMovieClickListener(new MyAdapter.OnMovieClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                MovieDetails movie = movies.get(i);
-                Intent intent = new Intent(getApplicationContext(), MovieDetailsActivity.class);
-                intent.putExtra("movie", movie);
+            public void OnMovieClick(int position) {
+                Intent intent = new Intent(getBaseContext(), MovieDetailsActivity.class);
+                intent.putExtra("movie", movies.get(position));
                 startActivity(intent);
             }
         });
+
+        RecyclerView recyclerView = findViewById(R.id.Recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
     }
 
     public class MyLoader extends AsyncTask<String, Void, ArrayList<MovieDetails>> {

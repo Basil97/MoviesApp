@@ -14,14 +14,14 @@ public class MovieDetails implements Parcelable{
     private String posterPath;
     private float voteAverage;
 
-    public MovieDetails(String title, String overview, String posterPath, float voteAverage) {
+    MovieDetails(String title, String overview, String posterPath, float voteAverage) {
         this.title = title;
         this.overview = overview;
         this.posterPath = posterPath;
         this.voteAverage = voteAverage;
     }
 
-    protected MovieDetails(Parcel in) {
+    private MovieDetails(Parcel in) {
         title = in.readString();
         overview = in.readString();
         posterPath = in.readString();
@@ -40,19 +40,19 @@ public class MovieDetails implements Parcelable{
         }
     };
 
-    public String getTitle() {
+    String getTitle() {
         return title;
     }
 
-    public String getOverview() {
+    String getOverview() {
         return overview;
     }
 
-    public String getPosterPath() {
+    String getPosterPath() {
         return posterPath;
     }
 
-    public float getVoteAverage() {
+    float getVoteAverage() {
         return voteAverage;
     }
 

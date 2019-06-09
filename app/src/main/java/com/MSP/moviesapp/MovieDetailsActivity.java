@@ -1,8 +1,8 @@
 package com.MSP.moviesapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -23,14 +23,19 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        MovieDetails movie = intent.getExtras().getParcelable("movie");
+        if (intent.getExtras() == null) return;
+            MovieDetails movie = intent.getExtras().getParcelable("movie");
 
-        String posterPath = "https://image.tmdb.org/t/p/w500" + movie.getPosterPath();
-        Picasso.get().load(posterPath).into(poster);
-        txtTitle.setText(movie.getTitle());
-        txtOverview.setText(movie.getOverview());
-        barVote.setIsIndicator(true);
-        barVote.setRating(movie.getVoteAverage()/2);
+        String posterPath;
+        if (movie != null) {
+            posterPath = "https://image.tmdb.org/t/p/w500" + movie.getPosterPath();
+
+            Picasso.get().load(posterPath).into(poster);
+            txtTitle.setText(movie.getTitle());
+            txtOverview.setText(movie.getOverview());
+            barVote.setIsIndicator(true);
+            barVote.setRating(movie.getVoteAverage() / 2);
+        }
 
     }
 }
